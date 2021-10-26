@@ -20,7 +20,11 @@ select {
 .picker {
   display: inline-flex;
   flex-direction: column;
-  margin: 0.5rem;
+  margin: 0 0.5rem 0 0;
+}
+
+.picker label {
+  margin-bottom: 0.25rem;
 }
 
 pre {

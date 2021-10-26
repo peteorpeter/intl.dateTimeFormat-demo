@@ -1,6 +1,7 @@
 import './App.css';
 import {useState} from "react";
 
+const LOCALE_OPTIONS = ['en-US', 'en-UK', 'es', 'de', 'fr', 'ja-JP', 'zh-CN', 'ar', 'ru'];
 const LOCALE_MATCHER_OPTIONS = ['best fit', 'lookup'];
 const NUMERIC_OPTIONS = ['always', 'auto'];
 const STYLE_OPTIONS = ['long', 'short', 'narrow'];
@@ -17,19 +18,23 @@ function Picker({label, value, options, onChange}) {
 }
 
 function App() {
+    const [locale, setLocale] = useState('es');
     const [localeMatcher, setLocaleMatcher] = useState('best fit');
     const [numeric, setNumeric] = useState('always');
     const [style, setStyle] = useState('long');
     const [unit, setUnit] = useState('day');
     const [value, setValue] = useState('1');
 
-    const rtf = new Intl.RelativeTimeFormat("en", {localeMatcher, numeric, style});
+    const rtf = new Intl.RelativeTimeFormat(locale, {localeMatcher, numeric, style});
 
     return (
         <div className="App">
             <header className="App-header">
                 <h1>Intl.RelativeTimeFormat</h1>
+                <h2>Options:</h2>
                 <div className="pickers">
+                    <Picker label="Locale" value={locale} options={LOCALE_OPTIONS}
+                            onChange={(e) => setLocale(e.target.value)}/>
                     <Picker label="Locale Matcher" value={localeMatcher} options={LOCALE_MATCHER_OPTIONS}
                             onChange={(e) => setLocaleMatcher(e.target.value)}/>
                     <Picker label="Numeric" value={numeric} options={NUMERIC_OPTIONS}
@@ -42,15 +47,14 @@ function App() {
                 <p className="display">{rtf.format(parseFloat(value), unit)}</p>
                 <h2>Code:</h2>
                 <pre lang="javascript">
-          {`
-const rtf = new Intl.RelativeTimeFormat("en", { 
+          {
+`const rtf = new Intl.RelativeTimeFormat("${locale}", { 
   localeMatcher: "${localeMatcher}", 
   numeric: "${numeric}", 
   style: "${style}",
 });
 
-rtf.format(${value}, ${unit}); // ${rtf.format(parseFloat(value), unit)}
-`}
+rtf.format(${value}, ${unit}); // ${rtf.format(parseFloat(value), unit)}`}
                 </pre>
 
             </header>
