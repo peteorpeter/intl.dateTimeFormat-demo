@@ -1,9 +1,5 @@
 .App {
-  /*text-align: center;*/
-}
-
-.App-header {
-  background-color: #282c34;
+  background-color: #244459;
   min-height: 100vh;
   padding: 2rem;
   color: white;
@@ -29,8 +25,9 @@ select {
 
 pre {
   background: black;
-  color: limegreen;
+  color: #67a300;;
   padding: 2rem;
+  border-radius: 2px;
 }
 
 .display {
@@ -38,6 +35,8 @@ pre {
   color: black;
   font-size: 2rem;
   padding: 2rem;
+  border-radius: 2px;
+  font-family: 'serif';
 }
 
 h2, h3 {
