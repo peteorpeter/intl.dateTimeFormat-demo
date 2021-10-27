@@ -24,15 +24,12 @@ function RelativeTimeFormat() {
             <h1>Intl.RelativeTimeFormat</h1>
             <h2>Options:</h2>
             <div className="pickers">
-                <Picker label="Locale" value={locale} options={LOCALE_OPTIONS}
-                        onChange={(e) => setLocale(e.target.value)}/>
-                <Picker label="Locale Matcher" value={localeMatcher} options={LOCALE_MATCHER_OPTIONS}
-                        onChange={(e) => setLocaleMatcher(e.target.value)}/>
-                <Picker label="Numeric" value={numeric} options={NUMERIC_OPTIONS}
-                        onChange={(e) => setNumeric(e.target.value)}/>
-                <Picker label="Style" value={style} options={STYLE_OPTIONS} onChange={(e) => setStyle(e.target.value)}/>
-                <Picker label="Unit" value={unit} options={UNIT_OPTIONS} onChange={(e) => setUnit(e.target.value)}/>
-                <Picker label="Value" value={value} options={VALUE_OPTIONS} onChange={(e) => setValue(e.target.value)}/>
+                <Picker label="Locale" value={locale} options={LOCALE_OPTIONS} onChange={setLocale}/>
+                <Picker label="Locale Matcher" value={localeMatcher} options={LOCALE_MATCHER_OPTIONS} onChange={setLocaleMatcher}/>
+                <Picker label="Numeric" value={numeric} options={NUMERIC_OPTIONS} onChange={setNumeric}/>
+                <Picker label="Style" value={style} options={STYLE_OPTIONS} onChange={setStyle}/>
+                <Picker label="Unit" value={unit} options={UNIT_OPTIONS} onChange={setUnit}/>
+                <Picker label="Value" value={value} options={VALUE_OPTIONS} onChange={setValue}/>
             </div>
             <h2>Display:</h2>
             <p className="display">{rtf.format(parseFloat(value), unit)}</p>
