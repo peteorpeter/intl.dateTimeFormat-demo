@@ -1,8 +1,17 @@
 .App {
+  display: flex;
   background-color: #244459;
   min-height: 100vh;
-  padding: 2rem;
   color: white;
+  margin-left: 12rem;
+}
+
+.App * {
+  box-sizing: content-box;
+}
+
+.content {
+  padding: 2rem;
 }
 
 select, button {

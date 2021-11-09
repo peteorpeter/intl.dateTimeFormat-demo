@@ -1,11 +1,11 @@
 import './Nav.css';
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 function Nav() {
     return (
         <nav>
-            <Link to="/relative-time-format">RelativeTimeFormat</Link>
-            <Link to="/date-time-format">DateTimeFormat</Link>
+            <NavLink to="relative-time-format" activeClassName='active'>RelativeTimeFormat</NavLink>
+            <NavLink to="date-time-format" activeClassName='active'>DateTimeFormat</NavLink>
         </nav>
     )
 }
