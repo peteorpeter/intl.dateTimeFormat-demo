@@ -1,13 +1,14 @@
-nav button {
+nav a {
     margin: 0 0.5rem 0.5rem 0;
     padding: 0.5rem 1rem;
     border-radius: 0.1rem;
     border: none;
     color: white;
+    text-decoration: none;
     background: rgba(255,255,255,0.2);
     cursor: pointer;
 }
 
-nav button.active {
+nav a.active {
     background: #67a300;;
 }

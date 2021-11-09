@@ -1,14 +1,11 @@
 import './Nav.css';
+import {Link} from "react-router-dom";
 
-function Nav({onChange, view}) {
+function Nav() {
     return (
         <nav>
-            <button type="button" onClick={() => onChange('relative-time-format')}
-                    className={view === 'relative-time-format' ? 'active' : ''}>RelativeTimeFormat
-            </button>
-            <button type="button" onClick={() => onChange('date-time-format')}
-                    className={view === 'date-time-format' ? 'active' : ''}>DateTimeFormat
-            </button>
+            <Link to="/relative-time-format">RelativeTimeFormat</Link>
+            <Link to="/date-time-format">DateTimeFormat</Link>
         </nav>
     )
 }
