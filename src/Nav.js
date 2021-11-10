@@ -4,8 +4,9 @@ import {NavLink} from "react-router-dom";
 function Nav() {
     return (
         <nav>
-            <NavLink to="relative-time-format" activeClassName='active'>RelativeTimeFormat</NavLink>
-            <NavLink to="date-time-format" activeClassName='active'>DateTimeFormat</NavLink>
+            <div className="nav-title">Vanilla JS DateTime Localization</div>
+            <NavLink to="date-time-format" activeClassName='active'>Intl.DateTimeFormat</NavLink>
+            <NavLink to="relative-time-format" activeClassName='active'>Intl.RelativeTimeFormat</NavLink>
         </nav>
     )
 }
