@@ -26,7 +26,7 @@ const DAY_PERIOD_OPTIONS = longShortNarrow().concat([undefined]);;
 const HOUR_OPTIONS = simpleNumericOptions().concat([undefined]);
 const MINUTE_OPTIONS = simpleNumericOptions().concat([undefined]);
 const SECOND_OPTIONS = simpleNumericOptions().concat([undefined]);
-const FRACTIONAL_SECOND_OPTIONS = ['0', '1', '2', '3'];
+const FRACTIONAL_SECOND_OPTIONS = ['0', '1', '2', '3', undefined];
 const TIMEZONE_NAME_OPTIONS = ['long', 'short', 'shortOffset', 'longOffset', 'shortGeneric', 'longGeneric', undefined];
 
 function DateTimeFormat() {
@@ -39,17 +39,17 @@ function DateTimeFormat() {
     const [timeZone, setTimeZone] = useState('America/Chicago');
     const [hour12, setHour12] = useState(false);
 
-    const [weekday, setWeekday] = useState('long');
-    const [era, setEra] = useState('short');
-    const [year, setYear] = useState('numeric');
-    const [month, setMonth] = useState('long');
-    const [day, setDay] = useState('numeric');
-    const [dayPeriod, setDayPeriod] = useState('narrow');
-    const [hour, setHour] = useState('numeric');
-    const [minute, setMinute] = useState('numeric');
-    const [second, setSecond] = useState('numeric');
-    const [fractionalSecond, setFractionalSecond] = useState('0');
-    const [timeZoneName, setTimeZoneName] = useState('short');
+    const [weekday, setWeekday] = useState('');
+    const [era, setEra] = useState('');
+    const [year, setYear] = useState('');
+    const [month, setMonth] = useState('');
+    const [day, setDay] = useState('');
+    const [dayPeriod, setDayPeriod] = useState('');
+    const [hour, setHour] = useState('');
+    const [minute, setMinute] = useState('');
+    const [second, setSecond] = useState('');
+    const [fractionalSecond, setFractionalSecond] = useState('');
+    const [timeZoneName, setTimeZoneName] = useState('');
 
     const date = new Date(Date.UTC(2020, 11, 20, 3, 23, 16, 738));
     const options = {
@@ -72,6 +72,13 @@ function DateTimeFormat() {
         fractionalSecond,
         timeZoneName,
     }
+
+    Object.entries(options).forEach(entry => {
+        const [key, value] = entry;
+        if (value === ''){
+            delete options[key];
+        }
+    });
 
     let display = '';
     let errorMessage = '';
